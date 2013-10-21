@@ -32,7 +32,11 @@ public class Tweet extends BaseModel {
 		Tweet tweet = new Tweet();
 		try {
 			tweet.jsonObject = jsonObject;
-			tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+			if (tweet.jsonObject.getString("user") instanceof String) {
+				tweet.user = User.fromJson(new JSONObject(tweet.jsonObject.getString("user")));
+			} else {
+				tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

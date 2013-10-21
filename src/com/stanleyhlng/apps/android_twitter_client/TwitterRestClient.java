@@ -4,10 +4,10 @@ import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 /*
  * 
@@ -34,9 +34,9 @@ public class TwitterRestClient extends OAuthBaseClient {
 
     // GET statuses/home_timeline
     // https://dev.twitter.com/docs/api/1.1/get/statuses/home_timeline
-    public void getHomeTimeline(AsyncHttpResponseHandler handler) {
+    public void getHomeTimeline(RequestParams params, AsyncHttpResponseHandler handler) {
     	String url = getApiUrl("statuses/home_timeline.json");
-    	client.get(url, null, handler);
+    	client.get(url, params, handler);
     }
 
     // GET account/verify_credentials
@@ -44,6 +44,13 @@ public class TwitterRestClient extends OAuthBaseClient {
     public void getCredentials(AsyncHttpResponseHandler handler) {
     	String url = getApiUrl("account/verify_credentials.json");
     	client.get(url, null, handler);
+    }
+     
+    // POST statuses/update
+    // https://dev.twitter.com/docs/api/1.1/post/statuses/update
+    public void postUpdate(RequestParams params, AsyncHttpResponseHandler handler) {
+    	String url = getApiUrl("statuses/update.json");
+    	client.post(url, params, handler);
     }
     
     // CHANGE THIS

@@ -1,8 +1,11 @@
 package com.stanleyhlng.apps.android_twitter_client.models;
 
+import java.io.Serializable;
+
 import org.json.JSONObject;
 
 public class User extends BaseModel {
+
 	public String getName() {
 		return getString("name");
 	}
