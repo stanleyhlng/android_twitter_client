@@ -24,8 +24,8 @@ import com.loopj.android.http.RequestParams;
 public class TwitterRestClient extends OAuthBaseClient {
     public static final Class<? extends Api> REST_API_CLASS = TwitterApi.class; // Change this
     public static final String REST_URL = "https://api.twitter.com/1.1"; // Change this, base API URL
-    public static final String REST_CONSUMER_KEY = "MeKRFF3E7pQvDc7eKlOnCA";       // Change this
-    public static final String REST_CONSUMER_SECRET = "SekT5wwHfuDKvHuxcrxposdDVyuafUfewYOJ8xXJY"; // Change this
+    public static final String REST_CONSUMER_KEY = "<CONSUMER_KEY>";       // Change this
+    public static final String REST_CONSUMER_SECRET = "<COMUSER_SECRET>"; // Change this
     public static final String REST_CALLBACK_URL = "oauth://android_twitter_client"; // Change this (here and in manifest)
     
     public TwitterRestClient(Context context) {
